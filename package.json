@@ -9,9 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "date-fns": "^2.29.1",
+    "gray-matter": "^4.0.3",
     "next": "12.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rehype-parse": "^8.0.4",
+    "rehype-react": "^7.1.1",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-react": "^9.0.1",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "eslint": "8.21.0",
