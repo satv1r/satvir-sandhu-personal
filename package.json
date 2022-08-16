@@ -9,8 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.2.8",
     "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@fontsource/poppins": "^4.5.9",
     "date-fns": "^2.29.1",
+    "framer-motion": "^7.1.1",
     "gray-matter": "^4.0.3",
     "next": "12.2.4",
     "react": "18.2.0",
