@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from './layout.module.css';
+// import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import Script from 'next/script';
 
 const name = 'Satvir Sandhu';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -25,7 +26,8 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <Script src="https://kit.fontawesome.com/78c0b3f9b5.js" crossOrigin="anonymous" />
+      {/* <header className={styles.header}>
         {home ? (
           <>
             <Image
@@ -59,7 +61,7 @@ export default function Layout({ children, home }) {
             </h2>
           </>
         )}
-      </header>
+      </header> */}
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>

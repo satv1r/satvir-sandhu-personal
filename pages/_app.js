@@ -10,7 +10,11 @@ const theme = extendTheme({
           color: 'white',
           fontSize: '1rem',
           paddingTop: '40',
-        }
+        },
+        'externalLink': {
+          fontWeight: 700,
+          color: 'satvir-red'
+        },
       }
     },
     Button: {
@@ -35,7 +39,9 @@ const theme = extendTheme({
     }
   },
   colors: {
-    black: '#2E333D'
+    black: '#2E333D',
+    'satvir-yellow': '#ffd23f',
+    'satvir-red': '#ee4266'
   }
 })
 
@@ -43,7 +49,6 @@ export default function App({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <CSSReset />
-      <h1>Hello World!</h1>
       <Component {...pageProps} />
     </ChakraProvider>
   )

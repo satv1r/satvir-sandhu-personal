@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import React from 'react'
 import { Box, Center, Flex, ListItem, UnorderedList, Link as ChakraLink, Text, Button, IconButton, Tooltip } from "@chakra-ui/react";
 import Link from "next/link";
@@ -76,20 +75,20 @@ const SpinningIconButton = () => {
 
   return (
     <Tooltip hasArrow label={blurbs[currentBlurb].text} bg='black'>
-      <Button display='inline-block' fontSize='20' position='absolute' top='50%' left='0.25rem' transform='translateY(-50%)' variant='ghost-full' onClick={onIconClick}>{blurbs[currentBlurb].emoji}</Button>
+      <Button display='inline-block' fontSize='20' position='absolute' top='50%' left={{base: '4', md: '1'}} transform='translateY(-50%)' variant='ghost-full' onClick={onIconClick}>{blurbs[currentBlurb].emoji}</Button>
     </Tooltip>
   )
 }
 
 const NavItem = ({item}) => {
   return (
-    <ChakraLink variant='navLink'>
-      <Link href={item.url} variant='navLink'>
+      <Link href={item.url} passHref>
+        <ChakraLink variant='navLink' paddingTop={{base: '0'}} color={{base: 'black', md: 'white'}} textDecoration={{base: 'none'}} _hover={{textDecoration: {base: 'none', md: 'underline'}}}>
         {item.strong ? (
           <strong>{item.text}</strong>
         ) : item.text}
+        </ChakraLink>
       </Link>
-    </ChakraLink>
   );
 }
 
@@ -97,10 +96,13 @@ const NavItem = ({item}) => {
 const NavBar = () => {
   return (
     <Center width='100%'>
-      <Box className="navbar" bg='black' as='nav' borderRadius='full' paddingRight='6' paddingLeft='8' paddingY='2' position='relative' overflow='hidden'>
+      <Box className="navbar" bg={{base: 'none', md: 'black'}} as='nav' borderRadius={{base: 'none', md: 'full'}} paddingRight='6' paddingLeft='8' paddingY='2' position='relative' overflow='hidden' marginTop={{base: '2', md: '5'}} width={{base: 'full', md: 'fit-content'}}>
         <SpinningIconButton />
-        <UnorderedList listStyleType='none' marginLeft='0' color='white' display='inline-block'>         
-          <Flex justify='space-between'>
+        <UnorderedList listStyleType='none' marginLeft='0' color='white' display='inline-block'>
+          <Box display={{base: 'inline-block', md: 'none'}} marginLeft={{base: '2', md: '0'}}>
+            <NavItem item={NavBarItems[0]}/>   
+          </Box>
+          <Flex justify='space-between' display={{base: 'none', md: 'flex'}}>
             {NavBarItems.map(item => (
               <ListItem key={item.text}>
                 <NavItem item={item} />

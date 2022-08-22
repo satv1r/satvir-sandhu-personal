@@ -67,6 +67,32 @@ img {
   }
 }
 
+/* wave animation */
+@keyframes wave {
+  0% {
+    transform: rotate(40deg);
+  }
+  20% {
+    transform: rotate(0);
+  }
+  40% {
+    transform: rotate(-40deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.animated-wave {
+  animation: wave 1s linear forwards;
+}
+
 .fade-in {
   animation: fadeIn 0.25s linear forwards;
 }
