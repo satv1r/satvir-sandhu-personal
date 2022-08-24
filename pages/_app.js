@@ -33,15 +33,15 @@ const theme = extendTheme({
     global: {
       body: {
         fontFamily: `'Poppins', sans-serif`,
-        backgroundColor: '#f3fcf0',
+        backgroundColor: '#FEF5EF',
         color: 'black'
       }
     }
   },
   colors: {
     black: '#2E333D',
-    'satvir-yellow': '#ffd23f',
-    'satvir-red': '#ee4266'
+    'satvir-yellow': '#ea7317',
+    'satvir-red': '#CC3363'
   }
 })
 

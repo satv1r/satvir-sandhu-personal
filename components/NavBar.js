@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Center, Flex, ListItem, UnorderedList, Link as ChakraLink, Text, Button, IconButton, Tooltip } from "@chakra-ui/react";
+import { Box, Center, Flex, ListItem, Link as ChakraLink, Button, Tooltip, UnorderedList } from "@chakra-ui/react";
 import Link from "next/link";
 
 const NavBarItems = [
@@ -75,7 +75,7 @@ const SpinningIconButton = () => {
 
   return (
     <Tooltip hasArrow label={blurbs[currentBlurb].text} bg='black'>
-      <Button display='inline-block' fontSize='20' position='absolute' top='50%' left={{base: '4', md: '1'}} transform='translateY(-50%)' variant='ghost-full' onClick={onIconClick}>{blurbs[currentBlurb].emoji}</Button>
+      <Button display='inline-block' fontSize={{base: '1.5rem', md: '1.25rem'}} position='absolute' top='50%' left={{base: '4', md: '1'}} transform='translateY(-50%)' variant='ghost-full' onClick={onIconClick}>{blurbs[currentBlurb].emoji}</Button>
     </Tooltip>
   )
 }
@@ -83,7 +83,7 @@ const SpinningIconButton = () => {
 const NavItem = ({item}) => {
   return (
       <Link href={item.url} passHref>
-        <ChakraLink variant='navLink' paddingTop={{base: '0'}} color={{base: 'black', md: 'white'}} textDecoration={{base: 'none'}} _hover={{textDecoration: {base: 'none', md: 'underline'}}}>
+        <ChakraLink variant='navLink' paddingTop={{base: '0'}} color={{base: 'black', md: 'white'}} textDecoration={{base: 'none'}} _hover={{textDecoration: {base: 'none', md: 'underline'},  _after:{content: `""`, position: 'absolute', top: 0, left: '50%', width: '0.1rem', width: '0.1rem', backgroundColor: 'white', transform: 'translate(-50%, 2.25rem)', backgroundImage: 'images/screenshot.png', backgroundSize: 'cover', backgroundPosition: 'cover', border: '5px solid #2E333D', borderRadius: '20px', animation: '0.15s ease-in-out preview forwards', zIndex: 1000}}} fontSize={{base: '1.5rem', md: '1rem'}} position='relative'>
         {item.strong ? (
           <strong>{item.text}</strong>
         ) : item.text}
@@ -96,20 +96,18 @@ const NavItem = ({item}) => {
 const NavBar = () => {
   return (
     <Center width='100%'>
-      <Box className="navbar" bg={{base: 'none', md: 'black'}} as='nav' borderRadius={{base: 'none', md: 'full'}} paddingRight='6' paddingLeft='8' paddingY='2' position='relative' overflow='hidden' marginTop={{base: '2', md: '5'}} width={{base: 'full', md: 'fit-content'}}>
+      <Box className="navbar" bg={{base: 'none', md: 'black'}} as='nav' borderRadius={{base: 'none', md: 'full'}} paddingRight='6' paddingLeft='8' paddingY='2' position='relative' marginTop={{base: '2', md: '5'}} width={{base: 'full', md: 'fit-content'}}>
         <SpinningIconButton />
-        <UnorderedList listStyleType='none' marginLeft='0' color='white' display='inline-block'>
-          <Box display={{base: 'inline-block', md: 'none'}} marginLeft={{base: '2', md: '0'}}>
+          <Box display={{base: 'inline-block', md: 'none'}} marginLeft={{base: 4}}>
             <NavItem item={NavBarItems[0]}/>   
           </Box>
-          <Flex justify='space-between' display={{base: 'none', md: 'flex'}}>
+          <UnorderedList justify='space-between' display={{base: 'none', md: 'flex'}} as='ul' listStyleType='none' marginLeft='0'>
             {NavBarItems.map(item => (
-              <ListItem key={item.text}>
+              <ListItem key={item.text} position='relative'>
                 <NavItem item={item} />
               </ListItem>
             ))}
-          </Flex>
-        </UnorderedList>
+          </UnorderedList>
       </Box>
     </Center>
   );

@@ -108,3 +108,17 @@ img {
 .rotate-counter-clockwise {
   animation: rotateCounterClockwise 1s linear forwards;
 }
+
+@keyframes preview {
+  0% {
+    width: 9rem;
+    height: 0.1rem;
+    border-radius: 50%;
+  }
+
+  100% {
+    width: 16rem;
+    height: 9rem;
+    border-radius: 20px;
+  }
+}

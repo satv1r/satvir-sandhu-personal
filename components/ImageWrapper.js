@@ -15,7 +15,7 @@ const ImageOffsetter = styled(Box)`
     bottom: 0;
     right: 0;
     transform: translate(1.5rem, 1.5rem);
-    background-color: black;
+    background-color: #2E333D;
   }
 
   &:before {
@@ -26,7 +26,7 @@ const ImageOffsetter = styled(Box)`
     bottom: 0;
     right: 0;
     transform: translate(1.5rem, 1.5rem);
-    background-color: black;
+    background-color: #2E333D;
   }
 `
 
@@ -36,7 +36,7 @@ const ImageWrapper = ({ src, direction, width, height, alt}) => {
     <Box display='inline-block' position='relative' style={{ overflow: "visible" }} width='calc(100% - 2rem)'>
       <Box position='relative' bg='satvir-yellow' display='inline-block' style={{ overflow: "visible" }} width='100%'>
         <ImageOffsetter width='100%'>
-          <Image src={src} alt={alt} layout='responsive' objectFit='contain' height='100%' width='100%' />
+          <Image src={src} alt={alt} layout='responsive' objectFit='contain' height='100%' width='100%' priority/>
         </ImageOffsetter>
       </Box>
       {/* <Box position='absolute' bottom='0' right='0' height='3' width='40%' bg='black' />
