@@ -8,7 +8,6 @@ import { Box, Flex, Heading, Text, Link as ChakraLink } from '@chakra-ui/react'
 import ImageWrapper from '../components/ImageWrapper'
 import Container from '../components/Container'
 import Link from 'next/link'
-const puppeteer = require('puppeteer')
 
 export default function Home({ preview, allPosts }) {
   const dim = 100
@@ -52,7 +51,9 @@ export default function Home({ preview, allPosts }) {
                   <Box mt={{base: 0, md: 4}} mr={{base: 4, md: 0}}/>
                   <Link href='https://www.github.com/satv1r' passHref><ChakraLink aria-label="Codepen"><i className="fab fa-codepen"></i></ChakraLink></Link>
                   <Box mt={{base: 0, md: 4}} mr={{base: 4, md: 0}}/>
-                  <Link href='https://www.github.com/satv1r' passHref><ChakraLink aria-label="Twitter"><i className="fab fa-twitter"></i></ChakraLink></Link>
+                  <Link href='https://www.github.com/satv1r' passHref><ChakraLink aria-label="Twitter" padding={0} margin={0} width='fit-content' height='fit-content' position='relative' _hover={{
+                    _after:{content: '"satv1r"', background: 'black', color: 'white', position: 'absolute', top: 0, left: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'translate(-105%, 0)', width: 0, height: '100%', borderRadius: '20px', fontSize: '1.25rem', fontWeight: '700',animation: '0.25s ease-out forwards unroll'}
+                  }} ><Box animation='0.25s roll-up' transform='rotate(-360deg)' _hover={{ animation: '0.25s forwards rolling'}}><i className="fab fa-twitter"></i></Box></ChakraLink></Link>
                 </Flex>
               </Flex>
             </Flex>
@@ -98,15 +99,6 @@ export default function Home({ preview, allPosts }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = (await getAllBlogPostsForHome(preview)) ?? []
-
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://www.spacex.com', {
-    waitUntil: 'networkidle2',
-  });
-  await page.screenshot({path: './public/images/screenshot.png'});
-
-  await browser.close();
   return {
     props: { preview, allPosts },
   }
